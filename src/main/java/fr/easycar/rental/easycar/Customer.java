@@ -1,11 +1,14 @@
 package fr.easycar.rental.easycar;
 
+import java.util.ArrayList;
+
 public class Customer {
     private String firstName;
     private String lastName;
     private String address;
     private String city;
     private String postalCode;
+    private ArrayList<Reservation> reservations = new ArrayList<Reservation>();
 
     public Customer(String firstName, String lastName, String address, String city, String postalCode) {
         this.firstName = firstName;
@@ -13,6 +16,7 @@ public class Customer {
         this.address = address;
         this.city = city;
         this.postalCode = postalCode;
+
     }
 
     public String getFirstName() {
@@ -53,5 +57,25 @@ public class Customer {
 
     public void setPostalCode(String postalCode) {
         this.postalCode = postalCode;
+    }
+
+    public double totalMoneySpent() {
+        double moneySpent = 0.0;
+
+        for (Reservation reservation : reservations) {
+            moneySpent += reservation.totalPrice();
+        }
+        return moneySpent;
+    }
+
+    public void addReservation(Reservation reservation) {
+        reservations.add(reservation);
+    }
+
+    public void removeReservation(Reservation reservation) {
+        if (this.reservations.size() >= 1) {
+            this.reservations.remove((reservation));
+
+        }
     }
 }

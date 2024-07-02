@@ -2,14 +2,14 @@ package fr.easycar.rental.easycar;
 
 import java.time.LocalDate;
 
-public abstract class Vehicule {
+public abstract class Vehicle {
     private String brand;
     private String model;
     private String color;
     private LocalDate buyingDate;
     private double pricePerDay;
 
-    protected Vehicule(String brand, String model, String color, LocalDate buyingDate, double pricePerDay) {
+    protected Vehicle(String brand, String model, String color, LocalDate buyingDate, double pricePerDay) {
         this.brand = brand;
         this.color = color;
         this.model = model;

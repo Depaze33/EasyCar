@@ -2,7 +2,7 @@ package fr.easycar.rental.easycar;
 
 import java.time.LocalDate;
 
-public class Bike extends Vehicule {
+public class Bike extends Vehicle {
     private char size;
 
     protected Bike(String brand, String model, String color, LocalDate buyingDate, double pricePerDay,

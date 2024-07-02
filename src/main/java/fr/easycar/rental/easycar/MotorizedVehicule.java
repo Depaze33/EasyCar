@@ -2,7 +2,7 @@ package fr.easycar.rental.easycar;
 
 import java.time.LocalDate;
 
-public abstract class MotorizedVehicule extends Vehicule {
+public abstract class MotorizedVehicule extends Vehicle {
     public enum FuelType {
         ESSENCE,
         DIESEL,

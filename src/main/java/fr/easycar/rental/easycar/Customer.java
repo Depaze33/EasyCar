@@ -1,14 +1,18 @@
 package fr.easycar.rental.easycar;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Customer {
+
+
+public class Customer implements Comparable<Customer>{
+
     private String firstName;
     private String lastName;
     private String address;
     private String city;
     private String postalCode;
-    private ArrayList<Reservation> reservations = new ArrayList<Reservation>();
+    private ArrayList<Reservation> reservations = new ArrayList<>();
 
     public Customer(String firstName, String lastName, String address, String city, String postalCode) {
         this.firstName = firstName;
@@ -73,9 +77,33 @@ public class Customer {
     }
 
     public void removeReservation(Reservation reservation) {
-        if (this.reservations.size() >= 1) {
+        if (!this.reservations.isEmpty()) {
             this.reservations.remove((reservation));
 
         }
     }
+
+   
+    
+
+    @Override
+    public String toString() {
+        return "\nCustomer [firstName=" + firstName + "\n,lastName=" + lastName + "\n, totalMoneySpent()="
+                + totalMoneySpent() + "]";
+    }
+
+    // pour comparer deux obl
+    @Override
+    public int compareTo(Customer o) {
+
+        if (this.totalMoneySpent()<o.totalMoneySpent()) {
+            return -1;
+            
+        } 
+        if (this.totalMoneySpent()>o.totalMoneySpent()){
+            return 1;
+        }
+        return 0;
+    }
 }
+
